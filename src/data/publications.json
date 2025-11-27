@@ -1,0 +1,76 @@
+[
+  {
+    "title": "SpeechCura: A Novel Speech Augmentation Framework to Tackle Data Scarcity in Healthcare",
+    "authors": "S. Rashidi, H. Azadmaleki, A. Zolnour, M.J. Momeni Nezhad, and M. Zolnoori",
+    "venue": "Studies in Health Technology and Informatics, vol. 318, 2025",
+    "doi": "10.3233/SHTI251250",
+    "pmid": "40776267",
+    "status": "published",
+    "year": 2025
+  },
+  {
+    "title": "SpeechCARE: Dynamic Multimodal Modeling for Cognitive Screening in Diverse Linguistic and Speech Task Contexts",
+    "authors": "H. Azadmaleki, Y. Haghbin, S. Rashidi, M. J. Momeni Nezhad, and M. Zolnoori",
+    "venue": "npj Digital Medicine 8, 677 (2025)",
+    "doi": "10.1038/s41746-025-02026-x",
+    "status": "published",
+    "year": 2025,
+    "highlight": true
+  },
+  {
+    "title": "LLMCARE: Early Detection of Cognitive Impairment via Transformer Models Enhanced by LLM-generated Synthetic Data",
+    "authors": "A. Zolnour, H. Azadmaleki, Y. Haghbin, F. Taherinezhad, M.J. Momeni Nezhad, S. Rashidi, et al.",
+    "venue": "Frontiers in Artificial Intelligence, 2025",
+    "doi": "10.3389/frai.2025.1669896",
+    "status": "published",
+    "year": 2025,
+    "highlight": true
+  },
+  {
+    "title": "SpeechCARE: Harnessing Multimodal Innovation to Transform Cognitive Impairment Detection",
+    "authors": "H. Azadmaleki, Y. Haghbin, S. Rashidi, M.J. Momeni Nezhad, M. Naserian, E. Esmaeili, A. Zolnour, and M. Zolnoori",
+    "venue": "Studies in Health Technology and Informatics, vol. 318, 2025",
+    "doi": "10.3233/SHTI251249",
+    "pmid": "40776266",
+    "status": "published",
+    "year": 2025
+  },
+  {
+    "title": "Detecting Mild Cognitive Impairment Using Follow-Up Call Speech and Electronic Health Record Data in Home Health Care Settings",
+    "authors": "M. Zolnoori, A. Zolnour, S. Rashidi, I. Spens, Y. Haghbin, et al.",
+    "venue": "Journal of Gerontological Nursing, 2025",
+    "status": "accepted",
+    "year": 2025
+  },
+  {
+    "title": "Leveraging Text-to-Speech and Voice Conversion as Data Augmentation for Alzheimer's Disease Detection from Spontaneous Speech",
+    "authors": "S. Rashidi, Y. Haghbin, H. Azadmaleki, A. Zolnour, and M. Zolnoori",
+    "venue": "ICASSP 2026",
+    "status": "under-review",
+    "year": 2026
+  },
+  {
+    "title": "Multimodal Attention Fusion of Speech and EHR Data for Early Detection of Cognitive Decline in Home Healthcare",
+    "authors": "S. Rashidi*, Y. Haghbin*, M. McDonald, and M. Zolnoori",
+    "venue": "ICASSP 2026",
+    "status": "under-review",
+    "year": 2026
+  },
+  {
+    "title": "Improving Direct Persian-English Speech-to-Speech Translation with Discrete Units and Synthetic Parallel Data",
+    "authors": "S. Rashidi, H. Sameti",
+    "venue": "arXiv preprint arXiv:2511.12690 2025",
+    "arxiv": "https://arxiv.org/abs/2511.12690",
+    "status": "preprint",
+    "year": 2025
+  },
+  {
+    "title": "Speech-Based Cognitive Screening: A Systematic Evaluation of LLM Adaptation Strategies",
+    "authors": "F. Taherinezhad, M. J. Momeni Nezhad, S. Karimi, S. Rashidi, et al.",
+    "venue": "arXiv preprint arXiv:2509.03525 2025",
+    "arxiv": "https://arxiv.org/abs/2509.03525",
+    "status": "preprint",
+    "year": 2025
+  }
+]
+
