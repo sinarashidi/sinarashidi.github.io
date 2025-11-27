@@ -5,10 +5,10 @@ const Hero = () => {
     <section className="relative bg-background py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
             {/* Profile Photo */}
             <div className="flex-shrink-0 flex flex-col items-center">
-              <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-muted shadow-lg">
+              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-muted shadow-lg">
                 <img 
                   src="/sina.jpg" 
                   alt="Sina Rashidi" 
@@ -58,16 +58,16 @@ const Hero = () => {
             </div>
 
             {/* Content */}
-            <div className="flex-1 text-left">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+            <div className="flex-1 text-left w-full">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 text-foreground">
                 Sina Rashidi
               </h1>
               
-              <div className="mb-8">
+              <div className="mb-6 sm:mb-8">
                 {/* <h2 className="text-xl font-bold mb-3 text-foreground">
                   A Bit About Me:
                 </h2> */}
-                <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
                   I'm an AI researcher and Master's graduate specializing in 
                   Natural Language Processing, Speech Processing, and Healthcare AI. 
                   Currently working as a Research Assistant at Columbia University on 
@@ -76,26 +76,26 @@ const Hero = () => {
               </div>
 
               {/* Circular Navigation Links */}
-              <div className="flex gap-6 mt-10">
+              <div className="flex gap-2 sm:gap-4 md:gap-6 mt-6 sm:mt-10">
                 <button
                   onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="circular-link circular-link-publications"
+                  className="circular-link circular-link-publications !w-20 !h-20 sm:!w-24 sm:!h-24 md:!w-32 md:!h-32 rounded-full flex-shrink-0"
                 >
-                  <span className="font-bold text-lg">Publications</span>
+                  <span className="font-bold text-xs sm:text-sm md:text-lg whitespace-nowrap">Publications</span>
                 </button>
                 
                 <button
                   onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="circular-link circular-link-experience"
+                  className="circular-link circular-link-experience !w-20 !h-20 sm:!w-24 sm:!h-24 md:!w-32 md:!h-32 rounded-full flex-shrink-0"
                 >
-                  <span className="font-bold text-lg">Experience</span>
+                  <span className="font-bold text-xs sm:text-sm md:text-lg whitespace-nowrap">Experience</span>
                 </button>
                 
                 <button
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="circular-link circular-link-contact"
+                  className="circular-link circular-link-contact !w-20 !h-20 sm:!w-24 sm:!h-24 md:!w-32 md:!h-32 rounded-full flex-shrink-0"
                 >
-                  <span className="font-bold text-lg">Contact</span>
+                  <span className="font-bold text-xs sm:text-sm md:text-lg whitespace-nowrap">Contact</span>
                 </button>
               </div>
             </div>
