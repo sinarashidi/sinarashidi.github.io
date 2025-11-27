@@ -43,14 +43,14 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-muted/30">
+    <section id="skills" className="py-10 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Projects</h2>
-            <p className="text-lg text-muted-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills</h2>
+            {/* <p className="text-lg text-muted-foreground">
               Technical expertise and hands-on project experience
-            </p>
+            </p> */}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
@@ -93,8 +93,8 @@ const Skills = () => {
                 <h3 className="text-2xl font-bold">Soft Skills</h3>
               </div>
               
-              <Card className="p-6 h-[calc(100%-3rem)]">
-                <div className="grid grid-cols-1 gap-4">
+              <Card className="p-6 h-[calc(100%-6rem)]">
+                <div className="grid grid-cols-2 gap-4">
                   {softSkills.map((skill, index) => (
                     <div 
                       key={index} 
@@ -109,7 +109,7 @@ const Skills = () => {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2 bg-primary/10 rounded-lg">
                 <Brain className="h-5 w-5 text-primary" />
@@ -150,7 +150,7 @@ const Skills = () => {
                 </Card>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

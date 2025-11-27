@@ -9,19 +9,19 @@ const About = () => {
       description: "Large Language Models, multimodal speech and language models, and text processing"
     },
     {
-      icon: Mic,
-      title: "Speech Processing",
-      description: "ASR, TTS, voice conversion, speaker verification, and speech-to-speech translation"
-    },
-    {
       icon: Heart,
       title: "Healthcare AI",
-      description: "Cognitive impairment detection, Alzheimer's disease detection from speech and multimodal data"
+      description: "Clinical NLP and Speech Processing, EHR Data Analysis, Cognitive Impairment Detection"
+    },
+    {
+      icon: Mic,
+      title: "Speech Processing",
+      description: "ASR, TTS, Voice Conversion, Speaker Verification, and Speech-to-Speech Translation"
     },
     {
       icon: Sparkles,
       title: "Multimodal AI",
-      description: "Integration of speech, text, and vision models for complex cognitive tasks"
+      description: "Multimodal Foundation Models, integration of speech, text, and vision models for complex clinical tasks"
     }
   ];
 
@@ -29,13 +29,13 @@ const About = () => {
     <section id="about" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Research Interests</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            {/* <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               My research focuses on developing advanced AI systems that bridge the gap between 
               human language, speech, and healthcare applications, with a particular emphasis on 
               cognitive health assessment and multilingual communication.
-            </p>
+            </p> */}
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-16">
@@ -57,7 +57,7 @@ const About = () => {
             ))}
           </div>
 
-          <Card className="p-8 bg-gradient-to-br from-accent/5 to-transparent border-accent/20">
+          {/* <Card className="p-8 bg-gradient-to-br from-accent/5 to-transparent border-accent/20">
             <h3 className="text-2xl font-bold mb-4">About Me</h3>
             <div className="space-y-4 text-foreground/90 leading-relaxed">
               <p>
@@ -78,7 +78,7 @@ const About = () => {
                 the NIA Challenge Competition.
               </p>
             </div>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </section>

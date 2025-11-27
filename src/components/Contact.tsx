@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, FileDown, ExternalLink } from "lucide-react";
+import cvFile from "@/data/Sina_Rashidi_CV.pdf";
 
 const Contact = () => {
   const references = [
@@ -40,16 +41,16 @@ const Contact = () => {
                 <p className="text-muted-foreground mb-4">
                   AI Researcher | Master's Graduate in Artificial Intelligence
                 </p>
-                <p className="text-lg font-medium text-accent">
+                {/* <p className="text-lg font-medium text-accent">
                   Open to PhD opportunities in AI, NLP, and Healthcare
-                </p>
+                </p> */}
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                 <Button 
                   size="lg"
                   className="bg-cta hover:bg-cta/90 text-cta-foreground shadow-accent-glow group"
-                  onClick={() => window.location.href = 'mailto:sina.rashidi@example.com'}
+                  onClick={() => window.location.href = 'mailto:sinarashidi46@gmail.com'}
                 >
                   <Mail className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                   Email Me
@@ -59,15 +60,21 @@ const Contact = () => {
                   size="lg"
                   variant="outline"
                   className="border-accent/30 hover:bg-accent/10"
+                  asChild
                 >
-                  <FileDown className="mr-2 h-5 w-5" />
-                  Download CV
+                  <a
+                    href={cvFile}
+                    download="Sina_Rashidi_CV.pdf"
+                  >
+                    <FileDown className="mr-2 h-5 w-5" />
+                    Download CV
+                  </a>
                 </Button>
               </div>
             </div>
           </Card>
 
-          <div>
+          {/* <div>
             <h3 className="text-2xl font-bold mb-6 text-center">Academic References</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {references.map((ref, index) => (
@@ -88,7 +95,7 @@ const Contact = () => {
                 </Card>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

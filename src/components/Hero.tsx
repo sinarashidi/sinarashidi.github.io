@@ -1,3 +1,5 @@
+import { Mail, Linkedin, Github, GraduationCap } from "lucide-react";
+
 const Hero = () => {
   return (
     <section className="relative bg-background py-16 md:py-24 overflow-hidden">
@@ -5,15 +7,53 @@ const Hero = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
             {/* Profile Photo */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 flex flex-col items-center">
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-muted shadow-lg">
-                {/* Placeholder - Replace this src with your actual photo path */}
-                <div className="w-full h-full flex items-center justify-center bg-muted/30">
-                  <div className="text-center">
-                    <div className="text-6xl mb-3">👤</div>
-                    <p className="text-sm text-muted-foreground">Your Photo</p>
-                  </div>
-                </div>
+                <img 
+                  src="/sina.jpg" 
+                  alt="Sina Rashidi" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Social Links */}
+              <div className="flex gap-4 mt-6">
+                <a
+                  href="mailto:sinarashidi46@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail className="w-5 h-5 text-foreground" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/sinarashidi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5 text-foreground" />
+                </a>
+                <a
+                  href="https://github.com/sinarashidi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-5 h-5 text-foreground" />
+                </a>
+                <a
+                  href="https://scholar.google.com/citations?user=R_U1wDsAAAAJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  aria-label="Google Scholar"
+                >
+                  <GraduationCap className="w-5 h-5 text-foreground" />
+                </a>
               </div>
             </div>
 
@@ -24,9 +64,9 @@ const Hero = () => {
               </h1>
               
               <div className="mb-8">
-                <h2 className="text-xl font-bold mb-3 text-foreground">
+                {/* <h2 className="text-xl font-bold mb-3 text-foreground">
                   A Bit About Me:
-                </h2>
+                </h2> */}
                 <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
                   I'm an AI researcher and Master's graduate specializing in 
                   Natural Language Processing, Speech Processing, and Healthcare AI. 
