@@ -45,8 +45,13 @@ const Navigation = () => {
           <div className="flex items-center justify-between h-16">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="text-xl font-bold text-foreground hover:text-accent transition-colors"
+              className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-accent transition-colors"
             >
+              <img 
+                src="/logo_noBG.png" 
+                alt="Logo" 
+                className="h-8 w-8 object-contain"
+              />
               Sina Rashidi
             </button>
 
