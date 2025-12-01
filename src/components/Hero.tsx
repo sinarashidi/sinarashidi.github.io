@@ -22,37 +22,37 @@ const Hero = () => {
                   href="mailto:sinarashidi46@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
                   aria-label="Email"
                 >
-                  <Mail className="w-5 h-5 text-foreground" />
+                  <Mail className="w-5 h-5 text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
                 </a>
                 <a
                   href="https://linkedin.com/in/sinarashidi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-5 h-5 text-foreground" />
+                  <Linkedin className="w-5 h-5 text-foreground group-hover:text-[#0077b5] transition-colors" />
                 </a>
                 <a
                   href="https://github.com/sinarashidi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
                   aria-label="GitHub"
                 >
-                  <Github className="w-5 h-5 text-foreground" />
+                  <Github className="w-5 h-5 text-foreground group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors" />
                 </a>
                 <a
                   href="https://scholar.google.com/citations?user=R_U1wDsAAAAJ"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors"
+                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
                   aria-label="Google Scholar"
                 >
-                  <GraduationCap className="w-5 h-5 text-foreground" />
+                  <GraduationCap className="w-5 h-5 text-foreground group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />
                 </a>
               </div>
             </div>
