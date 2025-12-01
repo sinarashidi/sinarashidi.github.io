@@ -168,29 +168,38 @@ All colors MUST be HSL.
   }
 
   .circular-link-publications {
-    background-color: hsl(38 92% 50%);
-    color: hsl(0 0% 0%);
+    background-color: transparent;
+    border: 2px solid hsl(38 92% 50%);
+    color: hsl(38 92% 50%);
   }
 
   .circular-link-publications:hover {
-    background-color: hsl(38 92% 45%);
-  }
-
-  .circular-link-experience {
-    background-color: hsl(0 84% 60%);
+    background-color: hsl(38 92% 50%);
+    border-color: hsl(38 92% 45%);
     color: hsl(0 0% 100%);
   }
 
+  .circular-link-experience {
+    background-color: transparent;
+    border: 2px solid hsl(0 84% 60%);
+    color: hsl(0 84% 60%);
+  }
+
   .circular-link-experience:hover {
-    background-color: hsl(0 84% 55%);
+    background-color: hsl(0 84% 60%);
+    border-color: hsl(0 84% 55%);
+    color: hsl(0 0% 100%);
   }
 
   .circular-link-contact {
-    background-color: hsl(187 71% 59%);
-    color: hsl(0 0% 0%);
+    background-color: transparent;
+    border: 2px solid hsl(187 71% 59%);
+    color: hsl(187 71% 59%);
   }
 
   .circular-link-contact:hover {
-    background-color: hsl(187 71% 54%);
+    background-color: hsl(187 71% 59%);
+    border-color: hsl(187 71% 54%);
+    color: hsl(0 0% 100%);
   }
 }

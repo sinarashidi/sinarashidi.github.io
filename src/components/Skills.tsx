@@ -93,14 +93,14 @@ const Skills = () => {
                 <h3 className="text-2xl font-bold">Soft Skills</h3>
               </div>
               
-              <Card className="p-6 h-[calc(100%-6rem)]">
-                <div className="grid grid-cols-2 gap-4">
+              <Card className="p-6 lg:h-[calc(100%-6rem)]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {softSkills.map((skill, index) => (
                     <div 
                       key={index} 
                       className="flex items-center gap-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
                     >
-                      <div className="h-2 w-2 rounded-full bg-cta"></div>
+                      <div className="h-2 w-2 rounded-full bg-cta flex-shrink-0"></div>
                       <span className="text-sm font-medium">{skill}</span>
                     </div>
                   ))}
