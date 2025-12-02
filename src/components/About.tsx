@@ -1,4 +1,4 @@
-import { Brain, Mic, Heart, Sparkles } from "lucide-react";
+import { Brain, Mic, Heart, Sparkles, Lightbulb } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const About = () => {
@@ -22,6 +22,11 @@ const About = () => {
       icon: Sparkles,
       title: "Multimodal AI",
       description: "Multimodal Foundation Models, integration of speech, text, and vision models for complex clinical tasks"
+    },
+    {
+      icon: Lightbulb,
+      title: "Explainable AI, Counterfactual Reasoning, and Causal Inference",
+      description: "Interpretable AI systems, counterfactual analysis, and causal reasoning for transparent and trustworthy AI"
     }
   ];
 
@@ -42,7 +47,7 @@ const About = () => {
             {interests.map((interest, index) => (
               <Card 
                 key={index} 
-                className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-accent/20"
+                className={`p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-2 border-transparent hover:border-accent/20 ${index === 4 ? 'md:col-span-2 md:max-w-2xl md:mx-auto' : ''}`}
               >
                 <div className="flex items-start space-x-4">
                   <div className="p-3 bg-accent/10 rounded-lg">
