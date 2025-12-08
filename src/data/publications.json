@@ -80,6 +80,15 @@
     "status": "preprint",
     "year": 2025,
     "date": "2025-09"
+  },
+  {
+    "title": "TransformerCARE: A novel speech analysis pipeline using transformer-based models and audio augmentation techniques for cognitive impairment detection",
+    "authors": "H Azadmaleki, A Zolnour, S Rashidi, et al.",
+    "venue": "International Journal of Medical Informatics",
+    "status": "published",
+    "year": 2025,
+    "date": "2025-12",
+    "doi": "10.1016/j.ijmedinf.2025.106208"
   }
 ]
 
