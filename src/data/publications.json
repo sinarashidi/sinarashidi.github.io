@@ -42,26 +42,27 @@
   {
     "title": "Detecting Mild Cognitive Impairment Using Follow-Up Call Speech and Electronic Health Record Data in Home Health Care Settings",
     "authors": "M. Zolnoori, A. Zolnour, S. Rashidi, I. Spens, Y. Haghbin, et al.",
-    "venue": "Journal of Gerontological Nursing, 2025",
-    "status": "accepted",
-    "year": 2025,
-    "date": "2025-11"
+    "venue": "Journal of Gerontological Nursing, 2026;52(1):8-14",
+    "status": "published",
+    "year": 2026,
+    "date": "2026-01",
+    "doi": "10.3928/00989134-20251208-03"
   },
   {
     "title": "Leveraging Text-to-Speech and Voice Conversion as Data Augmentation for Alzheimer's Disease Detection from Spontaneous Speech",
     "authors": "S. Rashidi, Y. Haghbin, H. Azadmaleki, A. Zolnour, and M. Zolnoori",
     "venue": "ICASSP 2026",
-    "status": "under-review",
+    "status": "accepted",
     "year": 2026,
-    "date": "2025-10"
+    "date": "2026-01"
   },
   {
     "title": "Multimodal Attention Fusion of Speech and EHR Data for Early Detection of Cognitive Decline in Home Healthcare",
     "authors": "S. Rashidi*, Y. Haghbin*, M. McDonald, and M. Zolnoori",
-    "venue": "ICASSP 2026",
+    "venue": "Interspeech 2026",
     "status": "under-review",
     "year": 2026,
-    "date": "2025-10"
+    "date": "2026-01"
   },
   {
     "title": "Improving Direct Persian-English Speech-to-Speech Translation with Discrete Units and Synthetic Parallel Data",
