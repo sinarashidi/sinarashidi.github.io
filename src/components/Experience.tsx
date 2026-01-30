@@ -44,19 +44,31 @@ const Experience = () => {
     }
   ];
 
-  const work = {
-    title: "ML Engineer (Speech & NLP)",
-    organization: "Sharif Information Systems and Data Science Center",
-    company: "Asr Gooyesh Pardaz",
-    location: "Tehran, Iran",
-    period: "Jan 2022 - Jan 2024",
-    highlights: [
-      "Led development of RAG-based enterprise chatbot 'Dana' with successful integration and optimization",
-      "Improved existing ASR and TTS models for Persian language by 10%-20% achieving state-of-the-art performance",
-      "Contributed to multiple projects focused on LLM-based applications, ASR, and TTS systems",
-      "Advised multiple groups of interns on speech and language processing technologies"
-    ]
-  };
+  const work = [
+    {
+      title: "Deep Learning Research Engineer",
+      organization: "BlueDopamine",
+      organizationUrl: "https://bluedopamine.ir/",
+      location: "Tehran, Iran",
+      period: "Feb 2025 - Present",
+      highlights: [
+        "Designed and optimized multiple LLM-based applications for protein analysis, including generative design for text-to-protein tasks, automated functional annotation (protein-to-text), and sequence-based structure prediction"
+      ]
+    },
+    {
+      title: "ML Engineer (Speech & NLP)",
+      organization: "Sharif Information Systems and Data Science Center",
+      company: "Asr Gooyesh Pardaz",
+      location: "Tehran, Iran",
+      period: "Jan 2022 - Jan 2024",
+      highlights: [
+        "Led development of RAG-based enterprise chatbot 'Dana' with successful integration and optimization",
+        "Improved existing ASR and TTS models for Persian language by 10%-20% achieving state-of-the-art performance",
+        "Contributed to multiple projects focused on LLM-based applications, ASR, and TTS systems",
+        "Advised multiple groups of interns on speech and language processing technologies"
+      ]
+    }
+  ];
 
   return (
     <section id="experience" className="py-20 bg-muted/30">
@@ -111,27 +123,46 @@ const Experience = () => {
                 </div>
                 <h3 className="text-2xl font-bold">Work Experience</h3>
               </div>
-              <Card className="p-6 hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-cta/20">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <div>
-                    <h4 className="text-xl font-semibold">{work.title}</h4>
-                    <p className="text-lg text-foreground/90">{work.organization}</p>
-                    <p className="text-sm text-muted-foreground">{work.company}</p>
-                  </div>
-                  <div className="flex flex-col items-start md:items-end gap-2">
-                    <Badge className="bg-cta/10 text-cta border-cta/20">{work.period}</Badge>
-                    <span className="text-sm text-muted-foreground">{work.location}</span>
-                  </div>
-                </div>
-                <ul className="space-y-2">
-                  {work.highlights.map((highlight, idx) => (
-                    <li key={idx} className="text-sm text-foreground/80 flex items-start">
-                      <span className="text-cta mr-2 mt-1">▪</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Card>
+              <div className="space-y-6">
+                {work.map((job, index) => (
+                  <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-cta/20">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                      <div>
+                        <h4 className="text-xl font-semibold">{job.title}</h4>
+                        <p className="text-lg text-foreground/90">
+                          {"organizationUrl" in job && job.organizationUrl ? (
+                            <a
+                              href={job.organizationUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-cta underline underline-offset-2 transition-colors"
+                            >
+                              {job.organization}
+                            </a>
+                          ) : (
+                            job.organization
+                          )}
+                        </p>
+                        {"company" in job && job.company && (
+                          <p className="text-sm text-muted-foreground">{job.company}</p>
+                        )}
+                      </div>
+                      <div className="flex flex-col items-start md:items-end gap-2">
+                        <Badge className="bg-cta/10 text-cta border-cta/20">{job.period}</Badge>
+                        <span className="text-sm text-muted-foreground">{job.location}</span>
+                      </div>
+                    </div>
+                    <ul className="space-y-2">
+                      {job.highlights.map((highlight, idx) => (
+                        <li key={idx} className="text-sm text-foreground/80 flex items-start">
+                          <span className="text-cta mr-2 mt-1">▪</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
         </div>

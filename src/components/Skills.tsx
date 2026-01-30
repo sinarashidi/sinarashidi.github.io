@@ -5,7 +5,7 @@ import { Code, Wrench, Users, Brain } from "lucide-react";
 const Skills = () => {
   const technicalSkills = {
     "Programming Languages": ["Python", "C++", "C", "JavaScript", "TypeScript"],
-    "ML/DL Frameworks": ["PyTorch", "TensorFlow", "Keras", "Huggingface Transformers"],
+    "ML/DL Frameworks": ["PyTorch", "Huggingface Transformers", "TensorFlow", "Keras"],
     "ML/NLP Tools": ["Langchain", "FAISS", "MLFlow", "Gradio", "Scikit-learn"],
     "Data & Visualization": ["NumPy", "Pandas", "Matplotlib"],
     "Tools & Systems": ["Linux", "Docker", "Git", "LaTeX"]
