@@ -51,18 +51,19 @@
   {
     "title": "Leveraging Text-to-Speech and Voice Conversion as Data Augmentation for Alzheimer's Disease Detection from Spontaneous Speech",
     "authors": "S. Rashidi, Y. Haghbin, H. Azadmaleki, A. Zolnour, and M. Zolnoori",
-    "venue": "ICASSP 2026",
-    "status": "accepted",
+    "venue": "ICASSP 2026-2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+    "status": "published",
     "year": 2026,
-    "date": "2026-01"
+    "date": "2026-05",
+    "doi": "10.1109/ICASSP55912.2026.11462646"
   },
   {
-    "title": "Multimodal Attention Fusion of Speech and EHR Data for Early Detection of Cognitive Decline in Home Healthcare",
+    "title": "Natural Speech Encodes Early Markers of Cognitive Decline: Evidence from Home Healthcare Interactions Complementing EHR-Based Detection",
     "authors": "S. Rashidi*, Y. Haghbin*, M. McDonald, and M. Zolnoori",
     "venue": "Interspeech 2026",
-    "status": "under-review",
+    "status": "accepted",
     "year": 2026,
-    "date": "2026-01"
+    "date": "2026-05"
   },
   {
     "title": "Improving Direct Persian-English Speech-to-Speech Translation with Discrete Units and Synthetic Parallel Data",
@@ -98,6 +99,14 @@
     "status": "under-review",
     "year": 2026,
     "date": "2026-01"
+  },
+  {
+    "title": "From Black-Box to Clinical Insight: A Multi-Stage Explainable Framework for Speech-Based Cognitive Impairment Detection",
+    "authors": "Y. Haghbin, S. Rashidi, A. Zolnour, and M. Zolnoori",
+    "venue": "Interspeech 2026",
+    "status": "accepted",
+    "year": 2026,
+    "date": "2026-05"
   }
 ]
 
