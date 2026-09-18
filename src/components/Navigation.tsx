@@ -6,6 +6,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -14,6 +15,24 @@ const Navigation = () => {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Track which section is currently being read to mark it in the nav.
+  useEffect(() => {
+    const ids = ["about", "publications", "experience", "honors", "education", "skills", "contact"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   const navItems = [
@@ -43,15 +62,15 @@ const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-md"
-            : "bg-transparent"
+            ? "bg-background/90 backdrop-blur-md border-b border-border"
+            : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center gap-2 text-xl font-bold text-foreground hover:text-accent transition-colors"
+              className="flex items-center gap-2 font-serif text-xl text-foreground hover:text-signal transition-colors"
             >
               <img 
                 src="/logo_noBG.png" 
@@ -62,22 +81,22 @@ const Navigation = () => {
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden md:flex items-center gap-5 lg:gap-7">
               {navItems.map((item) => (
-                <Button
+                <button
                   key={item.href}
-                  variant="ghost"
                   onClick={() => scrollToSection(item.href)}
-                  className="hover:bg-accent/10 hover:text-accent text-foreground"
+                  aria-current={activeSection === item.href ? "true" : undefined}
+                  className="link-sweep text-sm text-muted-foreground hover:text-foreground aria-[current=true]:text-foreground"
                 >
                   {item.label}
-                </Button>
+                </button>
               ))}
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="hover:bg-accent/10 hover:text-accent text-foreground ml-2"
+                className="hover:bg-transparent hover:text-signal text-foreground -mr-2"
                 aria-label="Toggle theme"
               >
                 {resolvedTheme === "dark" ? (
@@ -94,7 +113,7 @@ const Navigation = () => {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="hover:bg-accent/10 hover:text-accent text-foreground"
+                className="hover:bg-transparent hover:text-signal text-foreground"
                 aria-label="Toggle theme"
               >
                 {resolvedTheme === "dark" ? (
@@ -107,6 +126,9 @@ const Navigation = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="hover:bg-transparent"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
                   <X className="h-6 w-6" />
@@ -122,17 +144,17 @@ const Navigation = () => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-background/98 backdrop-blur-md md:hidden pt-16">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col space-y-4">
+          <div className="mx-auto max-w-6xl px-4 py-8">
+            <div className="flex flex-col">
               {navItems.map((item) => (
-                <Button
+                <button
                   key={item.href}
-                  variant="ghost"
                   onClick={() => scrollToSection(item.href)}
-                  className="justify-start text-lg hover:text-accent hover:bg-accent/10"
+                  aria-current={activeSection === item.href ? "true" : undefined}
+                  className="text-left font-serif text-3xl py-2 text-foreground hover:text-signal aria-[current=true]:text-signal transition-colors"
                 >
                   {item.label}
-                </Button>
+                </button>
               ))}
             </div>
           </div>

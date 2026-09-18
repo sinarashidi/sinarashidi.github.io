@@ -1,105 +1,90 @@
-import { Mail, Linkedin, Github, GraduationCap } from "lucide-react";
+import { Mail, Linkedin, Github, GraduationCap, ArrowDown } from "lucide-react";
+import Waveform from "@/components/Waveform";
 
 const Hero = () => {
+  const socials = [
+    { href: "mailto:s.rashidi@rug.nl", label: "Email", icon: Mail },
+    { href: "https://linkedin.com/in/sinarashidi", label: "LinkedIn", icon: Linkedin },
+    { href: "https://github.com/sinarashidi", label: "GitHub", icon: Github },
+    { href: "https://scholar.google.com/citations?user=R_U1wDsAAAAJ", label: "Google Scholar", icon: GraduationCap },
+  ];
+
+  const quickLinks = [
+    { label: "Publications", id: "publications" },
+    { label: "Experience", id: "experience" },
+    { label: "Contact", id: "contact" },
+  ];
+
   return (
-    <section className="relative bg-background py-16 md:py-24 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-            {/* Profile Photo */}
-            <div className="flex-shrink-0 flex flex-col items-center">
-              <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-muted shadow-lg">
-                <img 
-                  src="/sina.jpg" 
-                  alt="Sina Rashidi" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              
-              {/* Social Links */}
-              <div className="flex gap-4 mt-6">
-                <a
-                  href="mailto:sinarashidi46@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
-                  aria-label="Email"
-                >
-                  <Mail className="w-5 h-5 text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/sinarashidi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5 text-foreground group-hover:text-[#0077b5] transition-colors" />
-                </a>
-                <a
-                  href="https://github.com/sinarashidi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-5 h-5 text-foreground group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors" />
-                </a>
-                <a
-                  href="https://scholar.google.com/citations?user=R_U1wDsAAAAJ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-muted hover:bg-muted/80 transition-colors group"
-                  aria-label="Google Scholar"
-                >
-                  <GraduationCap className="w-5 h-5 text-foreground group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors" />
-                </a>
-              </div>
+    <section className="relative bg-background pt-28 pb-12 md:pt-36 md:pb-16 overflow-hidden">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-[13rem_1fr] md:gap-12 lg:grid-cols-[16rem_1fr]">
+          {/* Profile Photo */}
+          <div className="flex flex-row items-end gap-6 md:flex-col md:items-start">
+            <div className="w-32 sm:w-40 md:w-full aspect-[4/5] overflow-hidden rounded-sm bg-muted">
+              <img
+                src="/sina.jpg"
+                alt="Sina Rashidi"
+                className="h-full w-full object-cover grayscale-[0.15]"
+              />
             </div>
 
-            {/* Content */}
-            <div className="flex-1 text-left w-full">
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 text-foreground">
-                Sina Rashidi
-              </h1>
-              
-              <div className="mb-6 sm:mb-8">
-                {/* <h2 className="text-xl font-bold mb-3 text-foreground">
-                  A Bit About Me:
-                </h2> */}
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-xl">
-                  I'm an AI researcher and Master's graduate specializing in 
-                  Natural Language Processing, Speech Processing, and Healthcare AI. 
-                  Currently working as a Research Assistant at Columbia University on 
-                  cognitive impairment detection from speech.
-                </p>
-              </div>
-
-              {/* Circular Navigation Links */}
-              <div className="flex gap-2 sm:gap-4 md:gap-6 mt-6 sm:mt-10">
-                <button
-                  onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="circular-link circular-link-publications !w-20 !h-20 sm:!w-24 sm:!h-24 md:!w-32 md:!h-32 rounded-full flex-shrink-0"
+            {/* Social Links */}
+            <div className="flex gap-1.5 -ml-2.5">
+              {socials.map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 text-muted-foreground hover:text-signal transition-colors"
+                  aria-label={label}
                 >
-                  <span className="font-bold text-xs sm:text-sm md:text-lg whitespace-nowrap">Publications</span>
-                </button>
-                
-                <button
-                  onClick={() => document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="circular-link circular-link-experience !w-20 !h-20 sm:!w-24 sm:!h-24 md:!w-32 md:!h-32 rounded-full flex-shrink-0"
-                >
-                  <span className="font-bold text-xs sm:text-sm md:text-lg whitespace-nowrap">Experience</span>
-                </button>
-                
-                <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="circular-link circular-link-contact !w-20 !h-20 sm:!w-24 sm:!h-24 md:!w-32 md:!h-32 rounded-full flex-shrink-0"
-                >
-                  <span className="font-bold text-xs sm:text-sm md:text-lg whitespace-nowrap">Contact</span>
-                </button>
-              </div>
+                  <Icon className="h-6 w-6" strokeWidth={1.6} />
+                </a>
+              ))}
             </div>
           </div>
+
+          {/* Content */}
+          <div className="flex flex-col justify-end">
+            <h1 className="font-serif font-light text-[3.5rem] leading-[0.95] sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-[-0.03em] text-foreground mb-6 md:mb-8">
+              Sina
+              <br />
+              Rashidi
+            </h1>
+
+            <p className="max-w-[36rem] text-base sm:text-lg text-muted-foreground leading-relaxed">
+              I'm an AI researcher and Master's graduate specializing in
+              Natural Language Processing, Speech Processing, and Healthcare AI.
+              Currently working as a Research Assistant at Columbia University on
+              cognitive impairment detection from speech.
+            </p>
+
+            {/* Jump links: one joined control; ink rises like a level meter on hover. */}
+            <div className="mt-8 grid grid-cols-3 sm:inline-grid sm:w-fit rounded-sm border border-foreground/80 divide-x divide-foreground/80 overflow-hidden">
+              {quickLinks.map(({ label, id }) => (
+                <button
+                  key={id}
+                  onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}
+                  className="meter-button group"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {label}
+                    <ArrowDown
+                      className="hidden sm:block h-3.5 w-3.5 shrink-0 text-signal transition-[transform,color] duration-300 group-hover:translate-y-0.5 group-hover:text-background group-focus-visible:text-background"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    />
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 md:mt-16">
+          <Waveform />
         </div>
       </div>
     </section>

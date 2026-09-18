@@ -1,9 +1,14 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { GraduationCap } from "lucide-react";
 
 const Education = () => {
   const education = [
+    {
+      degree: "PhD, Speech and Language Technologies for Low-Resource Languages",
+      institution: "University of Groningen",
+      location: "Groningen, The Netherlands",
+      period: "Sep 2026 - Present",
+      supervisor: "Prof. Martijn Wieling, Prof. Malvina Nissim",
+      highlight: true
+    },
     {
       degree: "M.Sc., Artificial Intelligence and Robotics",
       institution: "Sharif University of Technology",
@@ -11,7 +16,6 @@ const Education = () => {
       period: "Oct 2021 - Jun 2024",
       thesis: "Improving Direct Speech-to-Speech Translation: A Unit-based Pipeline and Synthetic Corpus for Persian and English",
       supervisor: "Prof. Hossein Sameti",
-      highlight: true
     },
     {
       degree: "B.Sc., Electrical Engineering (Electronics)",
@@ -24,57 +28,43 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-2 bg-accent/10 rounded-lg">
-                <GraduationCap className="h-6 w-6 text-accent" />
+    <section id="education" className="section border-t border-border">
+      <div className="section-grid">
+        <div>
+          <h2 className="section-heading">Education</h2>
+          <p className="section-lede">
+            Academic background and research experience
+          </p>
+        </div>
+
+        <div className="entry-list">
+          {education.map((edu, index) => (
+            <article key={index} className="entry entry-signal first:pt-1">
+              <div className="entry-date">
+                <p>{edu.period}</p>
+                <p className="text-muted-foreground/80">{edu.location}</p>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold">Education</h2>
-            </div>
-            <p className="text-lg text-muted-foreground">
-              Academic background and research experience
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            {education.map((edu, index) => (
-              <Card 
-                key={index} 
-                className={`p-6 hover:shadow-lg transition-all duration-300 ${
-                  edu.highlight ? 'border-2 border-accent/30 bg-accent/5' : ''
-                }`}
-              >
-                <div className="space-y-3">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{edu.degree}</h3>
-                    <p className="text-lg text-foreground/90">{edu.institution}</p>
-                    <div className="flex flex-wrap items-center gap-3 mt-2">
-                      <Badge className="bg-accent/10 text-accent border-accent/20">
-                        {edu.period}
-                      </Badge>
-                      <span className="text-sm text-muted-foreground">{edu.location}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-1">
-                    {/* <p className="text-sm font-medium">
-                      <span className="text-muted-foreground">GPA:</span> {edu.gpa}
-                    </p> */}
-                    <p className="text-sm">
-                      <span className="text-muted-foreground font-medium">Thesis:</span>{" "}
-                      <span className="italic">{edu.thesis}</span>
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Supervisor: {edu.supervisor}
-                    </p>
-                  </div>
+
+              <div className="space-y-2">
+                <div>
+                  <h3 className="text-xl md:text-2xl leading-snug">{edu.degree}</h3>
+                  <p className="text-foreground/90">{edu.institution}</p>
                 </div>
-              </Card>
-            ))}
-          </div>
+
+                {/* <p className="text-sm font-medium">
+                  <span className="text-muted-foreground">GPA:</span> {edu.gpa}
+                </p> */}
+                <p className="max-w-[62ch]">
+                  <span className="text-sm text-muted-foreground">Thesis</span>
+                  <br />
+                  <span className="font-serif italic text-lg leading-snug">{edu.thesis}</span>
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Supervisor: {edu.supervisor}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

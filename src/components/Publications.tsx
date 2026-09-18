@@ -1,7 +1,4 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ExternalLink, FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import publicationsData from "@/data/publications.json";
 
 const Publications = () => {
@@ -36,10 +33,10 @@ const Publications = () => {
 
   const getStatusBadge = (status: string) => {
     const variants: Record<string, string> = {
-      "published": "bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/20",
-      "accepted": "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20",
-      "under-review": "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
-      "preprint": "bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20"
+      "published": "text-signal",
+      "accepted": "text-signal",
+      "under-review": "text-ember",
+      "preprint": "text-muted-foreground"
     };
     
     const labels: Record<string, string> = {
@@ -50,106 +47,115 @@ const Publications = () => {
     };
 
     return (
-      <Badge className={`${variants[status]} border`}>
+      <span className={`inline-flex items-center gap-1.5 text-sm ${variants[status]}`}>
+        <span className="h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true" />
         {labels[status]}
-      </Badge>
+      </span>
     );
   };
 
-  // Render publication card component
+  // Render a publication entry: date + status in the margin, citation on the right.
   const renderPublicationCard = (pub: any, index: number, prefix: string) => (
-    <Card 
-      key={`${prefix}-${index}`} 
-      className="p-4 publication-card"
+    <article
+      key={`${prefix}-${index}`}
+      className="entry entry-signal"
     >
-      <div className="flex flex-col space-y-2">
-        <div className="flex items-start justify-between gap-4">
-          <h3 className="text-base font-semibold leading-tight flex-1">
-            {pub.title}
-          </h3>
-          {getStatusBadge(pub.status)}
-        </div>
+      <div className="entry-date flex flex-row flex-wrap gap-x-3 sm:flex-col sm:gap-1">
+        <span>{formatDate(pub.date)}</span>
+        {getStatusBadge(pub.status)}
+      </div>
+
+      <div className="space-y-1.5">
+        <h4 className="text-lg md:text-xl leading-snug max-w-[62ch]">
+          {prefix === "published" && pub.doi ? (
+            <a
+              href={`https://doi.org/${pub.doi}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-sweep box-decoration-clone hover:text-signal"
+            >
+              {pub.title}
+            </a>
+          ) : (
+            pub.title
+          )}
+        </h4>
         
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground max-w-[70ch]">
           {pub.authors}
         </p>
         
-        <p className="text-sm font-medium text-foreground/80">
-          {pub.venue} · <span className="text-xs text-muted-foreground">{formatDate(pub.date)}</span>
+        <p className="font-serif italic text-foreground/85">
+          {pub.venue}
         </p>
         
-        <div className="flex flex-wrap items-center gap-2 pt-1">
-          {pub.doi && (
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="text-xs"
-              onClick={() => window.open(`https://doi.org/${pub.doi}`, '_blank')}
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-1 pt-1 text-sm empty:hidden">
+          {/* In the Published group the title itself links to the DOI. */}
+          {pub.doi && prefix !== "published" && (
+            <a
+              href={`https://doi.org/${pub.doi}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-quiet inline-flex items-center gap-1"
             >
-              <ExternalLink className="h-3 w-3 mr-1" />
+              <ExternalLink className="h-3 w-3" />
               DOI
-            </Button>
+            </a>
           )}
           {pub.arxiv && (
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="text-xs"
-              onClick={() => window.open(pub.arxiv, '_blank')}
+            <a
+              href={pub.arxiv}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-quiet inline-flex items-center gap-1"
             >
-              <FileText className="h-3 w-3 mr-1" />
+              <FileText className="h-3 w-3" />
               arXiv
-            </Button>
+            </a>
           )}
           {pub.pmid && (
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="text-xs"
-              onClick={() => window.open(`https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}`, '_blank')}
+            <a
+              href={`https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-quiet inline-flex items-center gap-1"
             >
-              <ExternalLink className="h-3 w-3 mr-1" />
+              <ExternalLink className="h-3 w-3" />
               PubMed
-            </Button>
+            </a>
           )}
         </div>
       </div>
-    </Card>
+    </article>
   );
 
+  const groups = [
+    { title: "To be Published", items: inProgress, prefix: "inprogress" },
+    { title: "Published", items: published, prefix: "published" },
+    { title: "Preprints", items: preprints, prefix: "preprint" },
+  ];
+
   return (
-    <section id="publications" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Publications</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Research contributions in AI, speech processing, and healthcare, published in top-tier journals and conferences.
-            </p>
-          </div>
+    <section id="publications" className="section border-t border-border">
+      <div className="section-grid">
+        <div>
+          <h2 className="section-heading">Publications</h2>
+          <p className="section-lede">
+            Research contributions in AI, speech processing, and healthcare, published in top-tier journals and conferences.
+          </p>
+        </div>
 
-          <div className="space-y-8">
-            {inProgress.length > 0 && (
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold mb-4">To be Published</h3>
-                {inProgress.map((pub, index) => renderPublicationCard(pub, index, "inprogress"))}
+        <div className="space-y-12">
+          {groups.map(({ title, items, prefix }) =>
+            items.length > 0 && (
+              <div key={prefix}>
+                <h3 className="subheading">{title}</h3>
+                <div className="entry-list">
+                  {items.map((pub, index) => renderPublicationCard(pub, index, prefix))}
+                </div>
               </div>
-            )}
-
-            {published.length > 0 && (
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold mb-4">Published</h3>
-                {published.map((pub, index) => renderPublicationCard(pub, index, "published"))}
-              </div>
-            )}
-
-            {preprints.length > 0 && (
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold mb-4">Preprints</h3>
-                {preprints.map((pub, index) => renderPublicationCard(pub, index, "preprint"))}
-              </div>
-            )}
-          </div>
+            )
+          )}
         </div>
       </div>
     </section>

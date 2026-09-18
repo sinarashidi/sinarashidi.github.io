@@ -1,5 +1,4 @@
-import { Card } from "@/components/ui/card";
-import { Award, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 const Honors = () => {
   const honors = [
@@ -18,54 +17,44 @@ const Honors = () => {
   ];
 
   return (
-    <section id="honors" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-2 bg-cta/10 rounded-lg">
-                <Award className="h-6 w-6 text-cta" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold">Honors & Awards</h2>
-            </div>
-            <p className="text-lg text-muted-foreground">
-              Recognition for academic excellence and research achievements
-            </p>
-          </div>
-          
-          <Card className="p-8">
-            <ul className="space-y-4">
-              {honors.map((honor, index) => (
-                <li key={index} className="flex items-start text-sm">
-                  <span className="text-cta mr-3 mt-1 text-lg">★</span>
-                  <span className="text-foreground/90 leading-relaxed">
-                    {typeof honor === 'string' ? (
-                      honor
-                    ) : (
-                      <>
-                        {honor.text}
-                        <a
-                          href={honor.link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-accent hover:text-accent/80 underline inline-flex items-center gap-1"
-                        >
-                          {honor.link.text}
-                          <ExternalLink className="h-3 w-3" />
-                        </a>
-                        {honor.suffix}
-                      </>
-                    )}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </Card>
+    <section id="honors" className="section border-t border-border">
+      <div className="section-grid">
+        <div>
+          <h2 className="section-heading">Honors &amp; Awards</h2>
+          <p className="section-lede">
+            Recognition for academic excellence and research achievements
+          </p>
         </div>
+
+        <ul className="entry-list">
+          {honors.map((honor, index) => (
+            <li key={index} className="py-5 first:pt-1 grid grid-cols-[1.75rem_1fr] max-w-[65ch]">
+              <span className="text-ember font-serif text-xl leading-none pt-1" aria-hidden="true">✳</span>
+              <span className="text-lg font-serif leading-relaxed">
+                {typeof honor === 'string' ? (
+                  honor
+                ) : (
+                  <>
+                    {honor.text}
+                    <a
+                      href={honor.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-quiet"
+                    >
+                      {honor.link.text}
+                      <ExternalLink className="ml-1 inline h-3.5 w-3.5 align-baseline" />
+                    </a>
+                    {honor.suffix}
+                  </>
+                )}
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
 };
 
 export default Honors;
-

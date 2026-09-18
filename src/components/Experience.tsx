@@ -1,6 +1,4 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Briefcase, GraduationCap } from "lucide-react";
+import type React from "react";
 
 const Experience = () => {
   const research = [
@@ -70,99 +68,81 @@ const Experience = () => {
     }
   ];
 
+  const renderEntry = (
+    period: string,
+    location: string,
+    title: string,
+    organization: React.ReactNode,
+    detail: string | undefined,
+    highlights: string[],
+    key: number
+  ) => (
+    <article key={key} className="entry entry-signal">
+      <div className="entry-date">
+        <p>{period}</p>
+        <p className="text-muted-foreground/80">{location}</p>
+      </div>
+      <div>
+        <h4 className="text-xl md:text-2xl leading-snug">{title}</h4>
+        <p className="text-foreground/90">{organization}</p>
+        {detail && <p className="text-sm text-muted-foreground">{detail}</p>}
+        <ul className="mt-3 space-y-1.5 max-w-[65ch]">
+          {highlights.map((highlight, idx) => (
+            <li key={idx} className="text-[0.95rem] text-foreground/80 grid grid-cols-[1rem_1fr]">
+              <span className="text-signal" aria-hidden="true">–</span>
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  );
+
   return (
-    <section id="experience" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
-            <p className="text-lg text-muted-foreground">
-              Research and professional experience in AI, NLP, and speech processing
-            </p>
+    <section id="experience" className="section border-t border-border">
+      <div className="section-grid">
+        <div>
+          <h2 className="section-heading">Experience</h2>
+          <p className="section-lede">
+            Research and professional experience in AI, NLP, and speech processing
+          </p>
+        </div>
+
+        <div className="space-y-12">
+          <div>
+            <h3 className="subheading">Research Experience</h3>
+            <div className="entry-list">
+              {research.map((exp, index) =>
+                renderEntry(exp.period, exp.location, exp.title, exp.organization, `Supervisor: ${exp.supervisor}`, exp.highlights, index)
+              )}
+            </div>
           </div>
 
-          <div className="space-y-12">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-accent/10 rounded-lg">
-                  <GraduationCap className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold">Research Experience</h3>
-              </div>
-              <div className="space-y-6">
-                {research.map((exp, index) => (
-                  <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div>
-                        <h4 className="text-xl font-semibold">{exp.title}</h4>
-                        <p className="text-lg text-foreground/90">{exp.organization}</p>
-                        <p className="text-sm text-muted-foreground">Supervisor: {exp.supervisor}</p>
-                      </div>
-                      <div className="flex flex-col items-start md:items-end gap-2">
-                        <Badge className="bg-accent/10 text-accent border-accent/20">{exp.period}</Badge>
-                        <span className="text-sm text-muted-foreground">{exp.location}</span>
-                      </div>
-                    </div>
-                    <ul className="space-y-2">
-                      {exp.highlights.map((highlight, idx) => (
-                        <li key={idx} className="text-sm text-foreground/80 flex items-start">
-                          <span className="text-accent mr-2 mt-1">▪</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-cta/10 rounded-lg">
-                  <Briefcase className="h-6 w-6 text-cta" />
-                </div>
-                <h3 className="text-2xl font-bold">Work Experience</h3>
-              </div>
-              <div className="space-y-6">
-                {work.map((job, index) => (
-                  <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-cta/20">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div>
-                        <h4 className="text-xl font-semibold">{job.title}</h4>
-                        <p className="text-lg text-foreground/90">
-                          {"organizationUrl" in job && job.organizationUrl ? (
-                            <a
-                              href={job.organizationUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hover:text-cta underline underline-offset-2 transition-colors"
-                            >
-                              {job.organization}
-                            </a>
-                          ) : (
-                            job.organization
-                          )}
-                        </p>
-                        {"company" in job && job.company && (
-                          <p className="text-sm text-muted-foreground">{job.company}</p>
-                        )}
-                      </div>
-                      <div className="flex flex-col items-start md:items-end gap-2">
-                        <Badge className="bg-cta/10 text-cta border-cta/20">{job.period}</Badge>
-                        <span className="text-sm text-muted-foreground">{job.location}</span>
-                      </div>
-                    </div>
-                    <ul className="space-y-2">
-                      {job.highlights.map((highlight, idx) => (
-                        <li key={idx} className="text-sm text-foreground/80 flex items-start">
-                          <span className="text-cta mr-2 mt-1">▪</span>
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </Card>
-                ))}
-              </div>
+          <div>
+            <h3 className="subheading">Work Experience</h3>
+            <div className="entry-list">
+              {work.map((job, index) =>
+                renderEntry(
+                  job.period,
+                  job.location,
+                  job.title,
+                  "organizationUrl" in job && job.organizationUrl ? (
+                    <a
+                      href={job.organizationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-quiet"
+                    >
+                      {job.organization}
+                    </a>
+                  ) : (
+                    job.organization
+                  ),
+                  "company" in job ? job.company : undefined,
+                  job.highlights,
+                  index
+                )
+              )}
             </div>
           </div>
         </div>

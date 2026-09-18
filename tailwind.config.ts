@@ -47,13 +47,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        signal: "hsl(var(--signal))",
+        ember: "hsl(var(--ember))",
         cta: {
           DEFAULT: "hsl(var(--cta))",
           foreground: "hsl(var(--cta-foreground))",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Hanken Grotesk", "system-ui", "sans-serif"],
+        serif: ["Spectral", "Georgia", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

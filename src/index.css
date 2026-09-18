@@ -2,95 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
 All colors MUST be HSL.
+
+Direction: "acoustic lab notebook". Cool lab-paper grey, deep ink, and a
+viridis-teal / magma-ember pair borrowed from spectrogram colormaps.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    /* Paper #EEF1F0 · Ink #16202E */
+    --background: 160 10% 94%;
+    --foreground: 215 35% 13%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card: 150 12% 97%;
+    --card-foreground: 215 35% 13%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover: 150 12% 97%;
+    --popover-foreground: 215 35% 13%;
 
-    --primary: 215 30% 25%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 215 35% 13%;
+    --primary-foreground: 160 10% 96%;
 
-    --secondary: 210 20% 96%;
-    --secondary-foreground: 215 30% 25%;
+    --secondary: 168 10% 90%;
+    --secondary-foreground: 215 35% 13%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 168 10% 90%;
+    /* Graphite #5B6675 */
+    --muted-foreground: 215 12% 41%;
 
-    --accent: 188 85% 50%;
-    --accent-foreground: 0 0% 98%;
+    /* Signal (viridis teal) #1E6F6A */
+    --signal: 176 57% 28%;
+    /* Ember (magma) #B2461F */
+    --ember: 16 70% 41%;
 
-    --destructive: 0 84.2% 60.2%;
+    --accent: var(--signal);
+    --accent-foreground: 160 10% 96%;
+
+    --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 215 15% 90%;
-    --input: 215 15% 90%;
-    --ring: 188 85% 50%;
+    /* Rule #CCD3D3 */
+    --border: 180 7% 81%;
+    --input: 180 7% 81%;
+    --ring: 176 57% 28%;
 
-    --radius: 0.75rem;
+    --radius: 0.25rem;
 
-    /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(215 20% 92%), hsl(210 25% 85%));
-    --accent-gradient: linear-gradient(135deg, hsl(188 85% 50%), hsl(200 85% 60%));
-    --cta: 32 95% 55%;
-    --cta-foreground: 0 0% 98%;
-    
-    /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(215 30% 25% / 0.08);
-    --shadow-md: 0 4px 16px hsl(215 30% 25% / 0.12);
-    --shadow-lg: 0 8px 32px hsl(215 30% 25% / 0.16);
-    --shadow-accent: 0 8px 24px hsl(188 85% 50% / 0.25);
+    --cta: var(--ember);
+    --cta-foreground: 160 10% 96%;
 
-    /* Transitions */
-    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .dark {
-    --background: 215 30% 8%;
-    --foreground: 210 20% 95%;
+    /* Deep navy #141C2B · Ink #E4E8EC */
+    --background: 219 37% 12%;
+    --foreground: 210 17% 91%;
 
-    --card: 215 25% 12%;
-    --card-foreground: 210 20% 95%;
+    --card: 219 33% 15%;
+    --card-foreground: 210 17% 91%;
 
-    --popover: 215 25% 12%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 219 33% 15%;
+    --popover-foreground: 210 17% 91%;
 
-    --primary: 210 20% 95%;
-    --primary-foreground: 215 30% 15%;
+    --primary: 210 17% 91%;
+    --primary-foreground: 219 37% 12%;
 
-    --secondary: 215 25% 16%;
-    --secondary-foreground: 210 20% 95%;
+    --secondary: 218 31% 17%;
+    --secondary-foreground: 210 17% 91%;
 
-    --muted: 215 25% 16%;
-    --muted-foreground: 215 15% 65%;
+    --muted: 218 31% 17%;
+    --muted-foreground: 215 13% 64%;
 
-    --accent: 188 85% 50%;
-    --accent-foreground: 0 0% 98%;
+    --signal: 172 46% 56%;
+    --ember: 18 83% 65%;
 
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 210 20% 95%;
+    --accent: var(--signal);
+    --accent-foreground: 219 37% 12%;
 
-    --border: 215 25% 20%;
-    --input: 215 25% 20%;
-    --ring: 188 85% 50%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 210 17% 95%;
 
-    /* Custom design tokens for dark mode */
-    --hero-gradient: linear-gradient(135deg, hsl(215 25% 16%), hsl(215 30% 12%));
-    --accent-gradient: linear-gradient(135deg, hsl(188 85% 50%), hsl(200 85% 60%));
-    --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.3);
-    --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.4);
-    --shadow-lg: 0 8px 32px hsl(0 0% 0% / 0.5);
-    --shadow-accent: 0 8px 24px hsl(188 85% 50% / 0.3);
+    --border: 217 26% 22%;
+    --input: 217 26% 22%;
+    --ring: 172 46% 56%;
+
+    --cta: var(--ember);
+    --cta-foreground: 219 37% 12%;
   }
 }
 
@@ -99,8 +98,14 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-size: 1.0625rem;
+    line-height: 1.6;
     font-feature-settings: "kern" 1;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -108,98 +113,165 @@ All colors MUST be HSL.
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    @apply font-serif font-normal;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: hsl(var(--signal) / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Section: sticky heading in a left margin column, content on the right. */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-grid {
+    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-[13rem_1fr] md:gap-12 lg:grid-cols-[16rem_1fr];
+  }
+
+  .section-heading {
+    @apply font-serif text-3xl md:text-[2.5rem] leading-[1.1] md:sticky md:top-24 md:self-start;
+  }
+
+  .section-lede {
+    @apply mt-3 max-w-[22rem] text-base text-muted-foreground font-sans;
+  }
+
+  .subheading {
+    @apply font-serif italic text-xl text-muted-foreground mb-2;
+  }
+
+  /* A list whose rows are separated by one rule and anchored by a date margin. */
+  .entry-list > * + * {
+    @apply border-t border-border;
+  }
+
+  .entry {
+    @apply relative grid gap-1 py-6 sm:grid-cols-[7.5rem_1fr] sm:gap-6;
+  }
+
+  .entry-date {
+    @apply text-sm text-muted-foreground pt-1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Thin signal bar that appears at the row's left edge on hover / focus. */
+  .entry-signal::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    width: 2px;
+    background: hsl(var(--signal));
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.35s var(--ease-out);
+  }
+
+  .entry-signal:hover::before,
+  .entry-signal:focus-within::before {
+    transform: scaleY(1);
+  }
+
+  /* Underline that sweeps in from the left. */
+  .link-sweep {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s var(--ease-out), color 0.2s;
+    padding-bottom: 1px;
+  }
+
+  .link-sweep:hover,
+  .link-sweep:focus-visible,
+  .link-sweep[aria-current="true"] {
+    background-size: 100% 1px;
+  }
+
+  /* Hero jump buttons: an ink fill rises from the baseline on hover / focus. */
+  .meter-button {
+    @apply relative px-3 py-3 sm:px-6 text-sm sm:text-base font-medium text-foreground transition-colors duration-300;
+    outline-offset: -4px;
+  }
+
+  .meter-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: hsl(var(--foreground));
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.35s var(--ease-out);
+  }
+
+  .meter-button:hover,
+  .meter-button:focus-visible {
+    @apply text-background;
+  }
+
+  .meter-button:hover::before,
+  .meter-button:focus-visible::before {
+    transform: scaleY(1);
+  }
+
+  .meter-button:active::before {
+    background: hsl(var(--signal));
+  }
+
+  .link-quiet {
+    @apply text-signal link-sweep;
+    background-size: 100% 1px;
+    background-image: linear-gradient(hsl(var(--signal) / 0.35), hsl(var(--signal) / 0.35));
+  }
+
+  .link-quiet:hover {
+    background-image: linear-gradient(currentColor, currentColor);
   }
 }
 
 @layer utilities {
-  .gradient-hero {
-    background: var(--hero-gradient);
-  }
-  
-  .gradient-accent {
-    background: var(--accent-gradient);
+  .tabular {
+    font-variant-numeric: tabular-nums;
   }
 
-  .shadow-elegant {
-    box-shadow: var(--shadow-lg);
+  /* Hero waveform: bars grow in left-to-right once on load. */
+  .wave-bar {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wave-in 0.9s var(--ease-out) both;
+    transition: transform 0.25s var(--ease-out);
   }
 
-  .shadow-accent-glow {
-    box-shadow: var(--shadow-accent);
-  }
-
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  @keyframes fadeInUp {
+  @keyframes wave-in {
+    /* Only a `from` frame: bars animate toward their own inline scale/opacity. */
     from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeIn {
-    from {
+      transform: scaleY(0.02);
       opacity: 0;
     }
-    to {
-      opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave-bar,
+    .entry-signal::before,
+    .meter-button::before,
+    .link-sweep {
+      animation: none !important;
+      transition: none !important;
     }
-  }
 
-  .publication-card {
-    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
-  }
-
-  /* Circular Navigation Links */
-  .circular-link {
-    @apply w-32 h-32 rounded-full flex items-center justify-center text-center cursor-pointer transition-all duration-300;
-    @apply hover:scale-105 hover:shadow-lg active:scale-95;
-  }
-
-  .circular-link-publications {
-    background-color: transparent;
-    border: 2px solid hsl(38 92% 50%);
-    color: hsl(38 92% 50%);
-  }
-
-  .circular-link-publications:hover {
-    background-color: hsl(38 92% 50%);
-    border-color: hsl(38 92% 45%);
-    color: hsl(0 0% 100%);
-  }
-
-  .circular-link-experience {
-    background-color: transparent;
-    border: 2px solid hsl(0 84% 60%);
-    color: hsl(0 84% 60%);
-  }
-
-  .circular-link-experience:hover {
-    background-color: hsl(0 84% 60%);
-    border-color: hsl(0 84% 55%);
-    color: hsl(0 0% 100%);
-  }
-
-  .circular-link-contact {
-    background-color: transparent;
-    border: 2px solid hsl(187 71% 59%);
-    color: hsl(187 71% 59%);
-  }
-
-  .circular-link-contact:hover {
-    background-color: hsl(187 71% 59%);
-    border-color: hsl(187 71% 54%);
-    color: hsl(0 0% 100%);
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
