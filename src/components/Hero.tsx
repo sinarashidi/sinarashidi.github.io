@@ -24,6 +24,10 @@ const Hero = () => {
 
   const interests = [
     {
+      title: "Speech Processing",
+      description: "ASR, TTS, Voice Conversion, Pronunciation Assessment, and Speech-to-Speech Translation",
+    },
+    {
       title: "Natural Language Processing",
       description: "Large Language Models, multimodal speech and language models, and text processing",
     },
@@ -32,15 +36,7 @@ const Hero = () => {
       description: "Clinical NLP and Speech Processing, EHR Data Analysis, Cognitive Impairment Detection",
     },
     {
-      title: "Speech Processing",
-      description: "ASR, TTS, Voice Conversion, Speaker Verification, and Speech-to-Speech Translation",
-    },
-    {
-      title: "Multimodal AI",
-      description: "Multimodal Foundation Models, integration of speech, text, and vision models for complex clinical tasks",
-    },
-    {
-      title: "Explainable AI, Counterfactual Reasoning, and Causal Inference",
+      title: "Explainable and Trustworthy AI",
       description: "Interpretable AI systems, counterfactual analysis, and causal reasoning for transparent and trustworthy AI",
     },
   ];
