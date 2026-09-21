@@ -27,7 +27,7 @@ const Contact = () => {
 
         <div>
           <p className="font-serif text-2xl md:text-4xl font-light leading-tight max-w-[24ch]">
-            Interested in my research or PhD opportunities? I'd love to hear from you.
+            Interested in my research? I'd love to hear from you.
           </p>
 
           <div className="mt-10 border-t border-border pt-6">
@@ -35,9 +35,6 @@ const Contact = () => {
             <p className="text-muted-foreground">
               AI Researcher | Master's Graduate in Artificial Intelligence
             </p>
-            {/* <p className="text-lg font-medium text-accent">
-              Open to PhD opportunities in AI, NLP, and Healthcare
-            </p> */}
 
             <div className="flex flex-col sm:flex-row gap-3 mt-8">
               <Button
