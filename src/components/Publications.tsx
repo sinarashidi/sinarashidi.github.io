@@ -1,4 +1,4 @@
-import { ExternalLink, FileText } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import publicationsData from "@/data/publications.json";
 
 const Publications = () => {
@@ -67,9 +67,9 @@ const Publications = () => {
 
       <div className="space-y-1.5">
         <h4 className="text-lg md:text-xl leading-snug max-w-[62ch]">
-          {prefix === "published" && pub.doi ? (
+          {(prefix === "published" && pub.doi) || pub.arxiv ? (
             <a
-              href={`https://doi.org/${pub.doi}`}
+              href={pub.arxiv ?? `https://doi.org/${pub.doi}`}
               target="_blank"
               rel="noopener noreferrer"
               className="link-sweep box-decoration-clone hover:text-signal"
@@ -100,17 +100,6 @@ const Publications = () => {
             >
               <ExternalLink className="h-3 w-3" />
               DOI
-            </a>
-          )}
-          {pub.arxiv && (
-            <a
-              href={pub.arxiv}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-quiet inline-flex items-center gap-1"
-            >
-              <FileText className="h-3 w-3" />
-              arXiv
             </a>
           )}
           {pub.pmid && (
