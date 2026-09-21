@@ -19,7 +19,7 @@ const Navigation = () => {
 
   // Track which section is currently being read to mark it in the nav.
   useEffect(() => {
-    const ids = ["about", "publications", "experience", "honors", "education", "skills", "contact"];
+    const ids = ["about", "publications", "experience", "education"];
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -39,10 +39,7 @@ const Navigation = () => {
     { label: "About", href: "#about" },
     { label: "Publications", href: "#publications" },
     { label: "Experience", href: "#experience" },
-    { label: "Honors", href: "#honors" },
-    { label: "Education", href: "#education" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" }
+    { label: "Education", href: "#education" }
   ];
 
   const scrollToSection = (href: string) => {

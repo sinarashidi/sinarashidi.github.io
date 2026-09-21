@@ -2,7 +2,7 @@ const Footer = () => {
   const links = [
     { label: "About", id: "about" },
     { label: "Publications", id: "publications" },
-    { label: "Contact", id: "contact" },
+    { label: "Experience", id: "experience" },
   ];
 
   return (
@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="space-y-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-baseline sm:justify-between">
               <p className="text-sm text-muted-foreground">
-                AI Researcher | Natural Language Processing | Speech Processing | Healthcare AI
+                PhD Candidate | Speech Processing | Natural Language Processing | Healthcare AI
               </p>
 
               <div className="flex gap-6 text-sm">

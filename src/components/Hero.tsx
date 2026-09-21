@@ -1,5 +1,6 @@
 import { Mail, Linkedin, Github, GraduationCap, ArrowDown } from "lucide-react";
 import Waveform from "@/components/Waveform";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const SemanticScholar = ({ className }: { className?: string; strokeWidth?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -19,11 +20,33 @@ const Hero = () => {
   const quickLinks = [
     { label: "Publications", id: "publications" },
     { label: "Experience", id: "experience" },
-    { label: "Contact", id: "contact" },
+  ];
+
+  const interests = [
+    {
+      title: "Natural Language Processing",
+      description: "Large Language Models, multimodal speech and language models, and text processing",
+    },
+    {
+      title: "Healthcare AI",
+      description: "Clinical NLP and Speech Processing, EHR Data Analysis, Cognitive Impairment Detection",
+    },
+    {
+      title: "Speech Processing",
+      description: "ASR, TTS, Voice Conversion, Speaker Verification, and Speech-to-Speech Translation",
+    },
+    {
+      title: "Multimodal AI",
+      description: "Multimodal Foundation Models, integration of speech, text, and vision models for complex clinical tasks",
+    },
+    {
+      title: "Explainable AI, Counterfactual Reasoning, and Causal Inference",
+      description: "Interpretable AI systems, counterfactual analysis, and causal reasoning for transparent and trustworthy AI",
+    },
   ];
 
   return (
-    <section className="relative bg-background pt-28 pb-12 md:pt-36 md:pb-16 overflow-hidden">
+    <section id="about" className="relative bg-background pt-28 pb-12 md:pt-32 md:pb-16 overflow-hidden">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[13rem_1fr] md:gap-12 lg:grid-cols-[16rem_1fr]">
           {/* Profile Photo */}
@@ -39,50 +62,49 @@ const Hero = () => {
             {/* Social Links */}
             <div className="flex gap-1.5 -ml-2.5 md:ml-0 md:w-full md:justify-center">
               {socials.map(({ href, label, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 text-muted-foreground hover:text-signal transition-colors"
-                  aria-label={label}
-                >
-                  <Icon className="h-6 w-6" strokeWidth={1.6} />
-                </a>
+                <Tooltip key={label} delayDuration={150}>
+                  <TooltipTrigger asChild>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 text-muted-foreground hover:text-signal transition-colors"
+                      aria-label={label}
+                    >
+                      <Icon className="h-6 w-6" strokeWidth={1.6} />
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" sideOffset={2} className="rounded-sm text-xs">
+                    {label}
+                  </TooltipContent>
+                </Tooltip>
               ))}
             </div>
           </div>
 
           {/* Content */}
           <div className="flex flex-col justify-end">
-            <h1 className="font-serif font-light text-[3.5rem] leading-[0.95] sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-[-0.03em] text-foreground mb-6 md:mb-8">
-              Sina
-              <br />
-              Rashidi
-            </h1>
+            {/* <h1 className="font-serif font-light text-[2.75rem] leading-[1.02] sm:text-6xl md:text-[4rem] lg:text-[5rem] tracking-[-0.03em] text-foreground mb-5 md:mb-6">
+              Sina Rashidi
+            </h1> */}
 
-            <p className="max-w-[36rem] text-base sm:text-lg text-muted-foreground leading-relaxed">
+            <p className="max-w-[50rem] text-base sm:text-lg text-muted-foreground leading-relaxed">
               I'm a PhD candidate at the University of Groningen, working on speech and language technology for low-resource languages. My background is in artificial intelligence and robotics (M.Sc., Sharif University of Technology), and I've spent the past few years building deep learning systems for clinical speech AI. I'm interested in how speech technology can better serve the people and communities that mainstream systems overlook, and I continue to pursue research on speech-based detection of cognitive impairment alongside my doctoral work.
             </p>
 
-            {/* Jump links: one joined control; ink rises like a level meter on hover. */}
-            <div className="mt-8 grid grid-cols-3 sm:inline-grid sm:w-fit rounded-sm border border-foreground/80 divide-x divide-foreground/80 overflow-hidden">
-              {quickLinks.map(({ label, id }) => (
-                <button
-                  key={id}
-                  onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}
-                  className="meter-button group"
-                >
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    {label}
-                    <ArrowDown
-                      className="hidden sm:block h-3.5 w-3.5 shrink-0 text-signal transition-[transform,color] duration-300 group-hover:translate-y-0.5 group-hover:text-background group-focus-visible:text-background"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    />
-                  </span>
-                </button>
-              ))}
+            {/* Research interests: a compact register under the lede. */}
+            <div className="mt-10">
+              <h2 className="font-sans text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                Research Interests
+              </h2>
+              <ul className="mt-5 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+                {interests.map(({ title, description }) => (
+                  <li key={title} className="border-t border-border pt-3">
+                    <h3 className="font-serif text-lg leading-snug text-foreground">{title}</h3>
+                    <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{description}</p>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
